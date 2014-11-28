@@ -3986,6 +3986,8 @@ def draw_trimal_scc(pj, num_col, figs_folder, trimmed=False, alg = '-scc'):
     import random, os
     from Bio import AlignIO
     
+    path = "%s/galaxy-dist/tools/reprophylo/programs/"%os.environ['HOME']
+    
     # get the alignment objects
     #-------------------------#
     alignments = pj.alignments.items()
@@ -4014,8 +4016,8 @@ def draw_trimal_scc(pj, num_col, figs_folder, trimmed=False, alg = '-scc'):
         name = str(random.randint(1000,2000))+'_'+aln_name+'_for_trimal_graph.fasta'
         AlignIO.write(aln_obj, name, 'fasta')
         stderr = open('stderr','wt')
-        #stdout = os.popen('trimal '+alg+' -in '+name)#.read()
-        stdout = sub.Popen("trimal "+alg+" -in " + name,
+        #stdout = os.popen(path+'trimal '+alg+' -in '+name)#.read()
+        stdout = sub.Popen(path+"trimal "+alg+" -in " + name,
                        shell=True, stdout=sub.PIPE, stderr=stderr).stdout
         stderr.close()
         var = pd.read_table(stdout, sep='\t+', skiprows=3, engine='python')
