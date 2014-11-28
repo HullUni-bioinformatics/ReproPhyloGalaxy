@@ -44,6 +44,7 @@ sudo pip install -q cloud
 # pandas
 echo
 echo Installing Pandas
+echo This takes awhile
 sudo pip install -q  pandas
 
 # matplotlib
