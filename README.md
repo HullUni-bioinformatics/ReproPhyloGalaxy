@@ -7,6 +7,11 @@ A Galaxy instance with ReproPhylo tools
 
 ReproPhylo is a reproducible phylogenetics pipeline written in python and making use of BioPython and other open tools. This is a Galaxy instance with ReproPhylo tools.
 
+## Galaxy version:
+Galaxy was cloned and updated to 'stabe' on 27 Nov 2014 using
+`hg clone https://bitbucket.org/galaxy/galaxy-dist/`  
+`cd galaxy-dist && hg update stable`
+   
 ## Licence
 ReproPhylo is in the public domain under a [CC0 licence](http://creativecommons.org/publicdomain/zero/1.0/). This is a 'no copyright' licence and you are free to use, modify and repurpose any part of our work as you see fit. See the [documentation](https://docs.google.com/document/d/1Q-8B0cvkZw2zMkuP0Af4zZ7FiAvBQPDdGbrLLMgtx_4/edit?usp=sharing) for licences of dependencies.
 
