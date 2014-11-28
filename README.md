@@ -16,7 +16,7 @@ Galaxy was cloned and updated to 'stabe' on 27 Nov 2014 using
 ReproPhylo is in the public domain under a [CC0 licence](http://creativecommons.org/publicdomain/zero/1.0/). This is a 'no copyright' licence and you are free to use, modify and repurpose any part of our work as you see fit. See the [documentation](https://docs.google.com/document/d/1Q-8B0cvkZw2zMkuP0Af4zZ7FiAvBQPDdGbrLLMgtx_4/edit?usp=sharing) for licences of dependencies.
 
 ## Documentation
-Docs and guides are available in a public [Google Doc](https://docs.google.com/document/d/1Q-8B0cvkZw2zMkuP0Af4zZ7FiAvBQPDdGbrLLMgtx_4/edit?usp=sharing), and you are encouraged to edit, extend and improve these docs if you wish. The manual include a Galaxy tutorial.
+Docs and guides are available in a public [Google Doc](https://docs.google.com/document/d/1Q-8B0cvkZw2zMkuP0Af4zZ7FiAvBQPDdGbrLLMgtx_4/edit?usp=sharing), and you are encouraged to edit, extend and improve these docs if you wish. The manual includes a Galaxy tutorial.
 
 ## Contributions
 We welcome your additions and improvements, just fork the repository on GitHub and then send a pull request.
@@ -40,4 +40,4 @@ You will be asked for sudo password
   
 The first start-up takes a while because galaxy will fetch online eggs and will conduct tests. Subsequent start-ups are quick.  
   
-*Note*: If you have troubles shutting down galaxy, restart the machine and use sudo sh run.sh **--reload** from now on. You will then be able to stop galaxy using ctrl+c
+*Note*: If you have troubles shutting down galaxy with ctrl+c, restart the machine and use sudo sh run.sh **--reload**. You will then be able to stop galaxy using ctrl+c
