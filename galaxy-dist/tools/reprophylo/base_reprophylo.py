@@ -466,7 +466,7 @@ def run_default_analysis(pj):
         print '-------------------'   
         
         raxml = RaxmlConf(pj, method_name='fD_fb',
-                          program_name=pj.defaults['raxmlHPC'],
+                          cmd=pj.defaults['raxmlHPC'],
                           preset = 'fD_fb',
                           model='GAMMA', matrix='JTT',
                           threads=int(cl.threads))

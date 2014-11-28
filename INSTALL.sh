@@ -53,6 +53,11 @@ echo Installing Matplotlib
 sudo apt-get build-dep -qq python-matplotlib -y
 sudo apt-get install -qq python-matplotlib -y
 
+# mafft
+echo
+echo Installing mafft
+sudo apt-get install -qq -y mafft
+
 echo
 echo Cleaning up
 sudo apt-get -qq -y autoremove

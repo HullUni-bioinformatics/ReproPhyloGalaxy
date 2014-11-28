@@ -833,7 +833,7 @@ class Project:
         path = "%s/ReproPhyloGalaxy/tools/reprophylo/programs/"%os.environ['HOME']
         
         self.defaults = {'raxmlHPC': path+'raxmlHPC-PTHREADS-SSE3',
-                         'mafft': path+'mafft',
+                         'mafft': 'mafft',
                          'muscle': path+'muscle',
                          'trimal': path+'trimal',
                          'pb': path+'pb',
