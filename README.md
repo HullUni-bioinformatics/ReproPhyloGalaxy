@@ -34,7 +34,7 @@ You will be asked for sudo password
 
 ## Running Galaxy
 
-1. cd ~/ReproPhyloGalaxy
+1. cd ~/galaxy-dist
 2. sudo sh run.sh
 3. In a web browser, go to https://localhost:8080
   
