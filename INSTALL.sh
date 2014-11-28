@@ -63,7 +63,7 @@ echo
 echo "############################################################"
 echo To start galaxy do:
 echo
-echo "$ cd $HOME/ReproPhyloGalaxy && sudo sh run.sh"
+echo "$ cd $HOME/galaxy-dist && sudo sh run.sh"
 echo "then go to https://localhost:8080"
 echo
 echo To stop galaxt use ctrl+c

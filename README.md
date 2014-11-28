@@ -32,5 +32,5 @@ We welcome your additions and improvements, just fork the repository on GitHub a
 3. In a web browser, go to https://localhost:8080
   
 Note: If you have troubles shutting down galaxy, restart the machine and
-us sudo sh run.sh **--reload** from now on. You will then be able to stop
+use sudo sh run.sh **--reload** from now on. You will then be able to stop
  galaxy using CTRL+c
