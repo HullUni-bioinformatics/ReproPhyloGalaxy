@@ -8,7 +8,7 @@ A Galaxy instance with ReproPhylo tools
 ReproPhylo is a reproducible phylogenetics pipeline written in python and making use of BioPython and other open tools. This is a Galaxy instance with ReproPhylo tools.
 
 ## Galaxy version:
-Galaxy was cloned and updated to 'stabe' on 27 Nov 2014 using
+Galaxy was cloned and updated to 'stabe' on 27 Nov 2014 using  
 `hg clone https://bitbucket.org/galaxy/galaxy-dist/`  
 `cd galaxy-dist && hg update stable`
    
@@ -26,9 +26,11 @@ We welcome your additions and improvements, just fork the repository on GitHub a
 
 1. clone or downlad and extract this repository
 2. cd ReproPhyloGalaxy
-3. ./INSTALL.sh
+3. ./INSTALL.sh  
+  
+You will be asked for sudo password
 
-*Note: After the installation is done the repository directory can be removed*  
+*Note*: After the installation is done the repository directory can be removed
 
 ## Running Galaxy
 
@@ -36,6 +38,6 @@ We welcome your additions and improvements, just fork the repository on GitHub a
 2. sudo sh run.sh
 3. In a web browser, go to https://localhost:8080
   
-Note: If you have troubles shutting down galaxy, restart the machine and
-use sudo sh run.sh **--reload** from now on. You will then be able to stop
- galaxy using CTRL+c
+The first start-up takes a while because galaxy will fetch online eggs and will conduct tests. Subsequent start-ups are quick.  
+  
+*Note*: If you have troubles shutting down galaxy, restart the machine and use sudo sh run.sh **--reload** from now on. You will then be able to stop galaxy using ctrl+c
