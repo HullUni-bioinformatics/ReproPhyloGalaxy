@@ -830,7 +830,7 @@ class Project:
         self.trees = {}
         self.used_methods = []
         self.sets = {}
-        path = "%s/ReproPhyloGalaxy/tools/reprophylo/programs/"%os.environ['HOME']
+        path = "%s/galaxy-dist/tools/reprophylo/programs/"%os.environ['HOME']
         
         self.defaults = {'raxmlHPC': path+'raxmlHPC-PTHREADS-SSE3',
                          'mafft': 'mafft',
