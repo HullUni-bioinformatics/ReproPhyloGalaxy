@@ -1,0 +1,1 @@
+define(["i18n!nls/locale"],function(b){var a=function(c){if(a.cacheNonLocalized&&!b.hasOwnProperty(c)){if(!a.nonLocalized){a.nonLocalized={}}a.nonLocalized[c]=navigator.language}return b[c]||c};a.cacheNonLocalized=false;return a});
