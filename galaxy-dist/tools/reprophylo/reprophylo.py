@@ -837,7 +837,8 @@ class Project:
         callername = calframe[1][3]
         print callername
         programspath = ''
-        if 'make_project' in str(callername):
+        #if 'make_project' in str(callername):
+        if True:
             programspath = "%s/galaxy-dist/tools/reprophylo/programs/"%os.environ['HOME']
         self.defaults = {'raxmlHPC': programspath+'raxmlHPC-PTHREADS-SSE3',
                          'mafft': 'mafft',
