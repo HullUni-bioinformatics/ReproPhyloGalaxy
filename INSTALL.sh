@@ -71,6 +71,6 @@ echo
 echo "$ cd $HOME/galaxy-dist && sudo sh run.sh"
 echo "then go to https://localhost:8080"
 echo
-echo To stop galaxt use ctrl+c
+echo To stop galaxy use ctrl+c
 echo "###########################################################"
 
