@@ -45,16 +45,26 @@ parser.add_argument("-t", "--leafcolormeta",
                     type=str, 
                     default=None)
 parser.add_argument("-s", "--leafcolors",
-                    help=("Pairs of metadata value and it's color"),
-                    type=str, nargs='+',
+                    help=("contrast, blues, greens, reds, purples, browns"),
+                    type=str, choices=['contrast',
+                                       'blues',
+                                       'greens',
+                                       'reds',
+                                       'purples',
+                                       'browns'], 
                     default=None)
 parser.add_argument("-g", "--nodebgmeta",
                     help=("Metadata to determine background colors"),
                     type=str,
                     default=None)
 parser.add_argument("-i", "--nodebgcolors",
-                    help=("Pairs of metadata value and it's color"),
-                    type=str, nargs='+',
+                    help=("contrast, blues, greens, reds, purples, browns"),
+                    type=str, choices=['contrast',
+                                       'blues',
+                                       'greens',
+                                       'reds',
+                                       'purples',
+                                       'browns'], 
                     default=None)
 parser.add_argument("-n", "--nodesupport",
                     help=("Triplets of values: eg, black 100 90 gray 90 80"),
@@ -110,21 +120,138 @@ if len([x for x in (cl.nodebgmeta,
 if not len(cl.nodesupport)%3==0:
     parser.error('Node support annotation requires triplets consisting of: '+
                  'color top_range bottom_range')
-if cl.leafcolors and not len(cl.leafcolors)%2==0:
-    parser.error('--leafcolors requires couples consisting of: '+
-                 'matadata_value color') 
-if cl.nodebgcolors and not len(cl.nodebgcolors)%2==0:
-    parser.error('--nodebgcolors requires couples consisting of: '+
-                 'matadata_value color')
 #----------------------------------------------------------------------
 from reprophylo import *
 
+colors = {'greens': ['DarkOliveGreen',
+                     'Olive',
+                     'OliveDrab',
+                     'YellowGreen',
+                     'LimeGreen',
+                     'Lime',
+                     'LawnGreen',
+                     'Chartreuse',
+                     'GreenYellow',
+                     'SpringGreen',
+                     'MediumSpringGreen',
+                     'LightGreen',
+                     'PaleGreen',
+                     'DarkSeaGreen',
+                     'MediumSeaGreen',
+                     'SeaGreen',
+                     'ForestGreen',
+                     'Green',
+                     'DarkGreen'],
+            'reds': ['LightSalmon',
+                     'Salmon',
+                     'DarkSalmon',
+                     'LightCoral',
+                     'IndianRed',
+                     'Crimson',
+                     'FireBrick',
+                     'DarkRed',
+                     'Red',
+                     'OrangeRed',
+                     'Tomato',
+                     'Coral',
+                     'DarkOrange',
+                     'Orange'],
+            'blues': ['LightSteelBlue',
+                     'PowderBlue',
+                     'LightBlue',
+                     'SkyBlue',
+                     'LightSkyBlue',
+                     'DeepSkyBlue',
+                     'DodgerBlue',
+                     'CornflowerBlue',
+                     'SteelBlue',
+                     'RoyalBlue',
+                     'Blue',
+                     'MediumBlue',
+                     'DarkBlue',
+                     'Navy',
+                     'MidnightBlue',
+                     'MediumAquamarine',
+                     'Aqua',
+                     'Cyan',
+                     'LightCyan',
+                     'PaleTurquoise',
+                     'Aquamarine',
+                     'Turquoise',
+                     'MediumTurquoise',
+                     'DarkTurquoise',
+                     'LightSeaGreen',
+                     'CadetBlue',
+                     'DarkCyan',
+                     'Teal'],
+            'purples': ['Lavender',
+                     'Thistle',
+                     'Plum',
+                     'Violet',
+                     'Orchid',
+                     'Fuchsia',
+                     'Magenta',
+                     'MediumOrchid',
+                     'MediumPurple',
+                     'BlueViolet',
+                     'DarkViolet',
+                     'DarkOrchid',
+                     'DarkMagenta',
+                     'Purple',
+                     'Indigo',
+                     'DarkSlateBlue',
+                     'SlateBlue',
+                     'MediumSlateBlue'],
+            'browns': ['Cornsilk',
+                     'BlanchedAlmond',
+                     'Bisque',
+                     'NavajoWhite',
+                     'Wheat',
+                     'BurlyWood',
+                     'Tan',
+                     'RosyBrown',
+                     'SandyBrown',
+                     'Goldenrod',
+                     'DarkGoldenrod',
+                     'Peru',
+                     'Chocolate',
+                     'SaddleBrown',
+                     'Sienna',
+                     'Brown',
+                     'Maroon'],
+            'contrast': ['Red',
+                         'Orange',
+                         'Yellow',
+                         'SaddleBrown',
+                         'LimeGreen',
+                         'Aqua',
+                         'Blue',
+                         'Fuchsia',
+                         'Silver']
+            
+          }
+    
 def chekpoint_project(pj):
     if cl.altprojfile:
         pickle_pj(pj, cl.altprojfile)
     else:
         pickle_pj(pj, cl.projfile)
 
+def colors_dict(pj, meta, colors_choice):
+    dct = {}
+    indx = 0
+    for record in pj.records:
+        for f in record.features:
+            if meta in f.qualifiers.keys():
+                if not f.qualifiers[meta][0] in dct.keys():
+                    if indx < len(colors[colors_choice]):
+                        dct[f.qualifiers[meta][0]] = colors[colors_choice][indx]
+                        indx += 1
+                    else:
+                        dct[f.qualifiers[meta][0]] = colors[colors_choice][0]
+                        indx = 1
+    return dct
+    
 
 def dict_from_list_pairs(t):
     if t:
@@ -183,9 +310,9 @@ pj.annotate(cl.figs,
             cl.rootvalue,
             cl.leaflabelmeta,
             leaf_node_color_meta=cl.leafcolormeta,
-            leaf_label_colors=dict_from_list_pairs(cl.leafcolors),
+            leaf_label_colors= colors_dict(pj, cl.leafcolormeta, cl.leafcolors),
             node_bg_meta=cl.nodebgmeta,
-            node_bg_color=dict_from_list_pairs(cl.nodebgcolors),
+            node_bg_color=colors_dict(pj, cl.nodebgmeta, cl.nodebgcolors),
             node_support_dict=dict_from_list_triplets(cl.nodesupport),
             heat_map_meta=cl.heatmapmeta,
             heat_map_colour_scheme=cl.heatmapcolor,

@@ -65,10 +65,17 @@
                 <option value="black">Black</option>
                 <option value="other">According to rules</option>
             </param>
-            <when value="orng"/>
+            <when value="black"/>
             <when value="other">
                 <param name="leafcolormeta" type="text" label="A metadata column name to use for determining color" />
-                <param name="leafcolors" type="text" label="A space delimited list of one or more pairs of value and color" />
+                <param name="leafcolors" type="select" label="Select a color scheme" >
+                    <option value='contrast'>Contrast</option>
+                    <option value='reds'>Reds</option>
+                    <option value='greens'>Greens</option>
+                    <option value='blues'>Blues</option>
+                    <option value='purples'>Purples</option>
+                    <option value='browns'>Browns</option>
+                </param>
             </when>
         </conditional>
         <conditional name="bgcolor">
@@ -79,7 +86,14 @@
             <when value="no"/>
             <when value="yes">
                 <param name="nodebgmeta" type="text" label="A metadata column name to use for determining bg color" />
-                <param name="nodebgcolors" type="text" label="A space delimited list of one or more pairs of value and color" />
+                <param name="nodebgcolors" type="select" label="Select a color scheme" >
+                    <option value='contrast'>Contrast</option>
+                    <option value='reds'>Reds</option>
+                    <option value='greens'>Greens</option>
+                    <option value='blues'>Blues</option>
+                    <option value='purples'>Purples</option>
+                    <option value='browns'>Browns</option>
+                </param>
             </when>
         </conditional>
         <conditional name="nodeSupport">
@@ -108,7 +122,7 @@
             </when>
         </conditional>
         <conditional name="multifurc">
-            <param name="collapse" type="select" label="Use default ranges for node support annotations?" >
+            <param name="collapse" type="select" label="Collapse nodes?" >
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
             </param>
